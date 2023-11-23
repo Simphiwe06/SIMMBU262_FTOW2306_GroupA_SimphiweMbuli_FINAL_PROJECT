@@ -1,0 +1,110 @@
+nav {
+  height: 55px;
+  display: flex;
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+
+.nav--logo {
+  max-width: 90px;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 35px;
+  line-height: 1; /* Set line-height to 1 for normal behavior */
+}
+
+.nav-options {
+  display: flex;
+  margin-left: 30%;
+}
+
+.nav-option {
+  margin-left: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-option:hover {
+  text-decoration: underline;
+}
+
+/* src/views/Preview/GenreList.css */
+.genre-list {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.genre-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 40px; /* Adjust the gap between genres */
+}
+
+.genre-list li {
+  background-color: #e0e0e0; /* Light gray background color */
+  color: #333; /* Dark gray text color */
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.genre-list li:hover {
+  background-color: #d4d4d4; /* Slightly darker gray on hover */
+}
+
+.search-bar, .sort-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add this to your CSS file or style tag */
+.preview {
+  /* Add any existing styles for the preview container */
+}
+
+.show-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.show-preview {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.show-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.show-details-container {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 10px 0;
+  text-align: center; /* Center text and elements horizontally */
+}
+
+.show-image {
+  display: block; /* Make the image a block element */
+  margin: 0 auto; /* Center the image horizontally */
+  max-width: 50%; /* Ensure the image doesn't exceed the container width */
+  margin-bottom: 15px; /* Add some space between the image and details */
+}
+
+.seasons {
+  /* Add styles for seasons if needed */
+}
+
+.episodes {
+  /* Add styles for episodes if needed */
+}
+
+/* Add more specific styling as needed for other elements */
