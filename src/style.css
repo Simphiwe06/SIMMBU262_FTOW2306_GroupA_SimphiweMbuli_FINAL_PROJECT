@@ -1,110 +1,81 @@
-nav {
-  height: 55px;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #403c3c;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  :root {
+    --light-grey: #f2dcdc;
+    --grey: #808080;
+    --light-grey: #ccc7c7;
+  }
+  
+}
+
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
   display: flex;
-  align-items: center; /* Center items vertically */
-  padding: 20px;
-  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+  place-items: center;
+  background-color: var(--light-grey);
+  font-family: 'Inter', sans-serif; 
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-.nav--logo {
-  max-width: 90px;
-  margin-right: 10px;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-.app-name {
-  font-size: 35px;
-  line-height: 1; /* Set line-height to 1 for normal behavior */
-}
-
-.nav-options {
-  display: flex;
-  margin-left: 30%;
-}
-
-.nav-option {
-  margin-left: 20px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.nav-option:hover {
-  text-decoration: underline;
-}
-
-/* src/views/Preview/GenreList.css */
-.genre-list {
-  margin-top: 20px;
-  overflow-x: auto;
-}
-
-.genre-list ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 40px; /* Adjust the gap between genres */
-}
-
-.genre-list li {
-  background-color: #e0e0e0; /* Light gray background color */
-  color: #333; /* Dark gray text color */
-  padding: 10px;
+button {
   border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
   cursor: pointer;
-  white-space: nowrap; /* Prevent text wrapping */
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.genre-list li:hover {
-  background-color: #d4d4d4; /* Slightly darker gray on hover */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #e5ecf2;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
 
-.search-bar, .sort-by {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Add this to your CSS file or style tag */
-.preview {
-  /* Add any existing styles for the preview container */
-}
-
-.show-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.show-preview {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
-.show-preview img {
-  max-width: 100%;
-  height: auto;
-}
-
-.show-details-container {
-  border: 2px solid #ccc;
-  padding: 20px;
-  margin: 10px 0;
-  text-align: center; /* Center text and elements horizontally */
-}
-
-.show-image {
-  display: block; /* Make the image a block element */
-  margin: 0 auto; /* Center the image horizontally */
-  max-width: 50%; /* Ensure the image doesn't exceed the container width */
-  margin-bottom: 15px; /* Add some space between the image and details */
-}
-
-.seasons {
-  /* Add styles for seasons if needed */
-}
-
-.episodes {
-  /* Add styles for episodes if needed */
-}
-
-/* Add more specific styling as needed for other elements */

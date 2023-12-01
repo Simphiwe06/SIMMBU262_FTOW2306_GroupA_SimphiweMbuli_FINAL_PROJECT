@@ -1,0 +1,17 @@
+{
+    "name": "PodPlug",
+    "short_name": "PodPlug",
+    "description": "Explore podcasts, enjoy episodes, and curate your favorites with PodPlug.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#003EAB",
+    "icons": [
+      {
+        "src": "./src/images/podplug-favicon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  

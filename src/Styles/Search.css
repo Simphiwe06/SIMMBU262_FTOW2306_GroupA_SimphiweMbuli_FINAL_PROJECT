@@ -1,0 +1,35 @@
+.filter--search{
+    font-weight: 100;
+    
+}
+
+.filter--search > label {
+    font-weight: 400;
+    margin-right: 0.5rem;;
+}
+.filter--search input{
+background-color: transparent;
+border: 3px solid #f1f4f9;
+height: 2rem
+}
+
+
+
+@media only screen and (max-width: 425px){
+    .filter--search{
+        margin-left: 0;
+       
+    }
+    .filter--search > label {
+         font-size: 1rem;
+         
+    }
+    .filter--search input{
+        height: 1.5rem
+    }
+}
+@media only screen and (min-width: 768px) {
+    .filter--search input{
+        width: 13rem
+    }
+}
