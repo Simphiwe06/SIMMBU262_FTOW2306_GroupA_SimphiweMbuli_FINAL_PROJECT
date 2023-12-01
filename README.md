@@ -45,3 +45,23 @@ Get started with PodPlug in just a few steps:
    
     ```bash
     http://localhost:5173 [repository-url]
+
+## Technologies Used
+
+PodPlug is built using the following technologies:
+
+- HTML
+- CSS
+- JavaScript
+- React JS
+- React Router
+- Material UI
+- fuse.js
+- React Slick
+- Redux Toolkit
+
+## Hosting
+
+https://simphiwe-podplug.netlify.app/
+
+Explore, listen, and enjoy your podcast journey with PodPlug!
