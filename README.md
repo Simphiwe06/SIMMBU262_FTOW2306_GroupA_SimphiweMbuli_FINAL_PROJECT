@@ -28,20 +28,18 @@ Get started with PodPlug in just a few steps:
 
    ```bash
    git clone [repository-url]
-Navigate to the project directory:
+2. **Navigate to the project directory:**
 
-bash
-Copy code
-cd PodPlug
-Install the dependencies:
+   ```bash
+cd PodPlug [repository-url]
 
-bash
-Copy code
-npm install
-Launch the development server:
+**3. Install the dependencies:**
 
-bash
-Copy code
+  ```bash
+ ```npm install[repository-url] 
+3. **Launch the development server:**
+
+  ```bash
 npm run dev
 Open PodPlug in your preferred browser:
 
