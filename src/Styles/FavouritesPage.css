@@ -50,7 +50,7 @@
     border-radius: 5px;
 }
 Url:hover {
-    color: #003EAB
+    color: #282829
 }
 .container {
     display: flex;
@@ -81,11 +81,3 @@ Url:hover {
     border-radius: 9px;
     padding: 2rem;
 }
-
-/*
-
-
-.loading--icon {
-    display: flex;
-    justify-content: center;
-} */

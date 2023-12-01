@@ -27,4 +27,9 @@
 
 .welcome {
   font-size: xx-large ;
+  margin-top: 20%;
+}
+
+.app--name {
+  font-size: 25px;
 }

@@ -16,38 +16,16 @@ import Carousel from "../Components/Carousel.";
 
 // eslint-disable-next-line react/prop-types
 export default function PodcastPreview({ handleOpenCard, session }) {
-  //setting state for setting a selected podcast
   const [selectedPodcast, setSelectedPodcast] = useState(null);
-
-  //setting state to set the number of shows to display
   const [numOfVisibleShows, setNumOfVisibleShows] = useState(9);
-
-  //setting state for genre when selected
   const [selectedGenre, setSelectedGenre] = React.useState("");
-
-  //set state for the podcast shows
   const [podcastShows, setPodcastShows] = useState([]);
-
-  //set state for when the shows are loading
   const [loadingPodcasts, setLoadingPodcasts] = useState(true);
-
-  // set state load more podcast shows
   const [loadingMoreShows, setLoadingMoreShows] = useState(false);
-
-  // set state for when there is an error in fetching podcast shows
-
   const [isError, setIsError] = useState(false);
-
-  // set state for search query
   const [query, setQuery] = useState("");
-
-  //set state for sorted podcasts
   const [sortedPodcasts, setSortedPodcasts] = useState("");
-
-  // Set initial search results to all podcasts
   const [searchResults, setSearchResults] = useState(podcastShows);
-
-  // State for Carousel shows
   const [carouselShows, setCarouselShows] = useState([]);
 
   const navigate = useNavigate();
@@ -88,10 +66,7 @@ export default function PodcastPreview({ handleOpenCard, session }) {
    * @returns array
    */
   function shuffleArray(array) {
-    // Create a copy of the original array
     const shuffledArray = [...array];
-  
-    // Perform a Fisher-Yates (Knuth) shuffle to randomize the order
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
@@ -235,15 +210,14 @@ export default function PodcastPreview({ handleOpenCard, session }) {
   return (
     <>
     <div className="intro--container">
-      { session ? <h1 className='welcome'>Welcome Back, {session.user.user_metadata.full_name}👋🏽</h1> : <h1 className="welcome">Welcome to Podcast Hub👋🏽</h1>  }
-      
+      { session ? <p className='welcome'>Welcome Back, {session.user.user_metadata.full_name}👋🏽</p> : <p className="welcome">Welcome to your PodPlug!  Discover, play, and favorite your way through the captivating realm of audio stories. Unplug, unwind, and let the adventure begin!</p>  }
        {session && <button onClick={handleLogout}>Logout</button> }
     </div>
       
 
       <Container sx={{ mt: "4rem" }}>
         <>
-       <h1 className="text">You might be interested in...</h1>
+       <h2 className="text">You might be interested in...</h2>
         <Carousel handleClick={handleOpenCard} podcastShows={shuffledPodcasts}/> 
           <div className="filters">
             <Search
@@ -258,7 +232,7 @@ export default function PodcastPreview({ handleOpenCard, session }) {
           </div>
 
           
-    <h1 className="text" style={{marginRight: '2rem'}}>Discover more shows😁</h1>
+    <h1 className="text" style={{marginRight: '2rem'}}>Discover more shows...</h1>
           <div className="shows-list">
             
             {cards}</div>

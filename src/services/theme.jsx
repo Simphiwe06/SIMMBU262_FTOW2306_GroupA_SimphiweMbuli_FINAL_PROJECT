@@ -6,10 +6,16 @@ const theme = createTheme({
       main: '#7D4E57', // Rose Taupe
     },
     secondary: {
-      main: '#3498db', // Sky Blue
+      main: '#333333', // Dark Grey
     },
     background: {
-      default: '#F8F4F4', // Antique White
+      default: '#333333', // Dark Grey
+    },
+    box: {
+      main: '#E0E0E0', // Light Grey
+    },
+    text: {
+      primary: '#FFFFFF', // White
     },
   },
 });

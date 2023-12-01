@@ -3,8 +3,9 @@
 }
 
 .welcome {
-    margin-top: 8rem;
+    margin-top: 5rem;
    margin-left: 2rem;
+   font-size: x-large;
 }
 
 .loading--icon {
@@ -53,8 +54,8 @@
     margin-top: 2rem;
     width: 5rem;
     height: 2rem;
-    color: rgb(174, 165, 165);
-    background-color: #999e9b;
+    color: white;
+    background-color: #767a78;
     border: none;
 }
 
@@ -74,3 +75,6 @@
 
     }
     
+    .text {
+        margin-top: 0rem;
+    }
