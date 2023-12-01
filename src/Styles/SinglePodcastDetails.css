@@ -29,7 +29,7 @@
 }
 
 .episodes{
-    border: 1px solid #ccc;
+    border: 3px solid #2C3E50;
     padding: 1rem;
     margin-bottom: 1rem;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
@@ -39,18 +39,21 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-weight: bolder;
 
 }
 .title{
     margin: 0;
-    font-weight: 400;
-    font-size: 1.5rem;
+    font-weight: normal;
+    font-size: 1.1rem;
 }
 .episode--number{
     vertical-align: middle;
 }
 .description{
     text-align: center;
+    font-weight: bold;
+    color: rgb(18, 80, 139);
 }
 
 .episode--buttons {
@@ -61,19 +64,23 @@
 
 .season--form{
     display: flex;
-justify-content: center;
+    justify-content: center;
     margin-top: 2rem;
+    border: 5px #2C3E50;
     
 }
 .season--form  select {
     height: 2rem;
-    width: 6rem
+    width: 6rem;
+    font-weight: bolder;
+    color: dimgray;
 }
 
 .season--details{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bolder;
     
 }
 

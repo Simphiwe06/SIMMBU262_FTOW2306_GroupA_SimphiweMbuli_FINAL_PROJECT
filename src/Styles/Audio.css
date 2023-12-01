@@ -1,19 +1,20 @@
 .audio--player{
     min-width: 90%;
-    height: 10rem;
+    height: 7rem;
     position: fixed;
-    bottom: 0;
+    bottom: 0.9rem;
     padding: 1rem;
-    border: 1px solid rgb(141, 141, 141);
-    color: rgb(218, 218, 218);
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(250, 246, 246);
     display: flex;
     flex-direction: column;
-    background-color: #003EAB;
+    background-color: black;
     transition: transform 0.3s ease;
+    font-size: xx-small;
     }
 
     .audio--player-close {
-      display: none;
+      display: flex;
     }
     
     
@@ -35,7 +36,7 @@
       .seek-bar{
         width: 0;
         height: 100%;
-        background-color: white;
+        background-color: rgb(242, 244, 246);
         border-radius: 30px;
     }
     .time--progress{
@@ -63,10 +64,11 @@
 
     .reset {
       width: 5rem;
-      height: 2rem;
+      height: 1.1rem;
       color: white;
       background-color: #656866;
       border: none;
+      margin-top: 1px;
     }
 
     @media only screen and (min-width: 768px) {

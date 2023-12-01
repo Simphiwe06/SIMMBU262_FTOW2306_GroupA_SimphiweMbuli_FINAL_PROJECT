@@ -78,3 +78,32 @@
     .text {
         margin-top: 0rem;
     }
+
+    .welcome {
+        font-family: 'Your Preferred Font', sans-serif;
+        font-size: 1.2rem;
+        font-weight: bolder;
+        color: #333333;
+        margin-bottom: 20px;
+        text-align: center;
+        animation: fadeInUp 2s ease; /* Slow down the fade-in animation */
+      }
+      
+      /* Keyframes for fade-in animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .welcome:hover {
+        color: #1f3c6f; /* Change color on hover */
+        cursor: pointer;
+        transform: scale(1.1); /* Add a slight scale effect on hover */
+        transition: color 0.7s ease, transform 0.7s ease;
+      }  

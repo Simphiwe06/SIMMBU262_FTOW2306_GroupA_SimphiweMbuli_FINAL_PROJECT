@@ -210,7 +210,7 @@ export default function PodcastPreview({ handleOpenCard, session }) {
   return (
     <>
     <div className="intro--container">
-      { session ? <p className='welcome'>Welcome Back, {session.user.user_metadata.full_name}👋🏽</p> : <p className="welcome">Welcome to your PodPlug!  Discover, play, and favorite your way through the captivating realm of audio stories. Unplug, unwind, and let the adventure begin!</p>  }
+      { session ? <p className='welcome'>Welcome Back, {session.user.user_metadata.full_name}👋🏽</p> : <p className="welcome">Welcome to your PodPlug!  Discover, play, and favorite your way through the captivating realm of audio stories!</p>  }
        {session && <button onClick={handleLogout}>Logout</button> }
     </div>
       

@@ -6,8 +6,8 @@
 }
 
 .podcast--logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   padding-right:1rem ;
 }
 .title--image {
@@ -31,5 +31,12 @@
 }
 
 .app--name {
-  font-size: 25px;
+  font-family: 'Your Preferred Font', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #dbdada;
+  text-shadow: 2px 2px 4px rgba(19, 18, 18, 0.3); /* Add a subtle text shadow */
+  transform-style: flat(-10deg, 5deg); /* Skew the text for a 3D effect */
+  display: flex;
 }

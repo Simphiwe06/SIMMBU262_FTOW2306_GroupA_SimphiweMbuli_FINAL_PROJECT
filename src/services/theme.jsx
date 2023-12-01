@@ -1,23 +1,24 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#7D4E57', // Rose Taupe
+    palette: {
+      primary: {
+        main: '#495867', // Charcoal
+      },
+      secondary: {
+        main: '#2C3E50', // Midnight Blue
+      },
+      background: {
+        default: '#1A1B1D', // Dark Charcoal
+      },
+      box: {
+        main: '#828F9E', // Steel Grey
+      },
+      text: {
+        primary: '#F4F4F2', // Light Grey
+      },
     },
-    secondary: {
-      main: '#333333', // Dark Grey
-    },
-    background: {
-      default: '#333333', // Dark Grey
-    },
-    box: {
-      main: '#E0E0E0', // Light Grey
-    },
-    text: {
-      primary: '#FFFFFF', // White
-    },
-  },
-});
+  });
+  
 
-export default theme;
+  export default theme;
