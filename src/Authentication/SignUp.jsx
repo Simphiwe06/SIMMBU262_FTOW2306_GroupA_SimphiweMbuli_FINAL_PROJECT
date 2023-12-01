@@ -50,7 +50,7 @@ export default function SignUp() {
     <>
       <div className="auth--form">
         <div className="form--info">
-          <p className="podcast--title">Podcast Hub</p>
+          <p className="podcast--title">PodPlug</p>
           <p className="text">Want to Sign Up?</p>
         </div>
         <form onSubmit={handleSubmit}>

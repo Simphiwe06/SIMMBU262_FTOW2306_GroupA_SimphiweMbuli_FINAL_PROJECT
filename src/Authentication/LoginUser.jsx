@@ -51,7 +51,7 @@ export default function LoginUser({ setSession }) {
     <>
       <div className="auth--form">
         <div className="form--info">
-          <p className="podcast--title">Podcast Hub</p>
+          <p className="podcast--title">PodPlug</p>
           <p className="text">Want to Log in?</p>
         </div>
         <form onSubmit={handleSubmit}>
