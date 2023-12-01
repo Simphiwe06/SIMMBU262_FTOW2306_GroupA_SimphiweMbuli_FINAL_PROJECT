@@ -17,8 +17,8 @@ export default function SortFilter({ sortPodcast}) {
         sx={{ width: '18rem'}}
         >
          
-               <Button onClick={()=> sortPodcast("mostRecent")}>Most Recent</Button>
-               <Button onClick={()=> sortPodcast("leastRecent")}>Least Recent</Button>
+               <Button onClick={()=> sortPodcast("mostRecent")}>Newest</Button>
+               <Button onClick={()=> sortPodcast("leastRecent")}>Oldest</Button>
                <Button onClick={()=> sortPodcast("titleAZ")}>a - z</Button>
                <Button onClick={()=> sortPodcast("titleZA")}>z - a</Button>
              </ButtonGroup>

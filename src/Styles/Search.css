@@ -33,3 +33,17 @@ height: 2rem
         width: 13rem
     }
 }
+
+/* Add this to your CSS file */
+.search-container {
+    padding: 16px;
+    background-color: #393636; /* Light grey background */
+  }
+  
+  .genre-container {
+    padding: 16px;
+    background-color: #f4f4f4; /* Light grey background */
+  }
+  
+  /* You can adjust the padding and background color values based on your design preferences */
+  

@@ -17,16 +17,10 @@ export default function SinglePodcastDetails({
   // eslint-disable-next-line react/prop-types
   playSelectedEpisode,
 }) {
-  // set state for the single show info
+
   const [singleShow, setSingleShow] = useState(null);
-
-  // set state for loading
   const [loadingDetails, setLoadingDetails] = useState(true);
-
-  //set state for selected genre
   const [selectedSeason, setSelectedSeason] = useState(1);
-
-  //set state to store selected season data
   const [selectedSeasonData, setSelectedSeasonData] = useState(null);
 
   /**
@@ -74,7 +68,7 @@ export default function SinglePodcastDetails({
     }
   };
 
-  // when data is being fetched, loading spinner will be rendered
+
   if (loadingDetails) {
     return (
       <div className="loading--icon">

@@ -1,58 +1,42 @@
-import { useState, useEffect } from "react";
-import { Container } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Container, Grid, Paper } from "@mui/material";
 import "../Styles/FavouritesPage.css";
 import { Link } from "react-router-dom";
 import GoBack from "../Components/ReturnBack";
-import { changeDateFormat } from "../services/helper";
-import { getDateAndTime } from "../services/helper";
+import { changeDateFormat, getDateAndTime } from "../services/helper";
+import SortFilter from "../Components/SortFilter";
+import { ColorRing } from "react-loader-spinner";
 import IconButton from "@mui/material/IconButton";
 import SmartDisplayOutlinedIcon from "@mui/icons-material/SmartDisplayOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import SortFilter from "../Components/SortFilter";
-import { ColorRing } from "react-loader-spinner";
+import ShareIcon from "@mui/icons-material/Share";
+
+// Import Search and GenreFilter components
+import Search from "../Components/Search"; // Replace with actual import path
+import GenreFilter from "../Components/GenreFilter"; // Replace with actual import path
 
 export default function Favourites({
-  // eslint-disable-next-line react/prop-types
   FavouritesEpisodesLists,
-  // eslint-disable-next-line react/prop-types
   toggleFavourite,
-  // eslint-disable-next-line react/prop-types
   onGoBack,
-  // eslint-disable-next-line react/prop-types
   playSelectedEpisode,
-  // eslint-disable-next-line react/prop-types
   session,
 }) {
   const [favouriteEpisodes, setFavouriteEpisodes] = useState([]);
-
-  // set state for loading favourite episodes
   const [loadingDetails, setLoadingDetails] = useState(true);
-
-  // set state for when there is an error in fetching single podcast show
   const [isError, setIsError] = useState(false);
-
-  //set state for sorted podcasts
   const [sortedPodcasts, setSortedPodcasts] = useState("");
+  const [sharedURLs, setSharedURLs] = useState({});
 
-  //set state for shared URLs
-  const [sharedURLs, setSharedURLs] = useState([]);
-
-  //
-  /**
-   * Asnc Funtionc to fetch favorite episodes data from the favouriteID that is saved in favoritesEpisodesList. 
-   * Made from show ID, season number and episode number
-   */
   useEffect(() => {
     const fetchFavoriteEpisodes = async () => {
-      const episodes = [];
+      try {
+        const episodes = [];
 
-      //looping through favourite IDs
-      for (let episode of FavouritesEpisodesLists) {
-        const [podcastId, seasonNum, episodeNum] =
-          episode.favourite_id.split("-");
+        for (let episode of FavouritesEpisodesLists) {
+          const [podcastId, seasonNum, episodeNum] =
+            episode.favourite_id.split("-");
 
-        
-        try {
           const response = await fetch(
             `https://podcast-api.netlify.app/id/${podcastId}`
           );
@@ -61,7 +45,6 @@ export default function Favourites({
             (season) => season.season === parseInt(seasonNum)
           );
 
-          // Build an object reference to store favorite episode data
           const favObject = {
             ID: episode.favouriteId,
             show: data,
@@ -73,53 +56,28 @@ export default function Favourites({
           };
 
           episodes.push(favObject);
-          setLoadingDetails(false);
-        } catch (error) {
-          console.error(
-            "try again.",
-            error
-            );
-            setIsError(true)
         }
+
+        setFavouriteEpisodes(episodes);
+        setLoadingDetails(false);
+      } catch (error) {
+        console.error("Error fetching episodes:", error);
+        setIsError(true);
+        setLoadingDetails(false);
       }
-      setFavouriteEpisodes(episodes);
     };
 
     fetchFavoriteEpisodes();
   }, [FavouritesEpisodesLists]);
 
-  if (!session) {
-    return (
-      <>
-        <p className="error-info">
-        Oops! It seems you haven't signed in yet. Visit the{" "}
-          <Link to="/login">Login page</Link> or{" "}
-          <Link to="/signup">Sign Up</Link> Up to explore and manage your favourite podcasts!🎧
-        </p>
-      </>
-    );
-  }
-
-  /**
-   * Function to store the URL of the episode a user want to share
-   * @param {Number} podcastID
-   * @param { Number} seasonNumber
-   * @param {Number} episodeNumber
-   */
   const handleShareEpisode = (podcastID, seasonNumber, episodeNumber) => {
     const sharedURL = `=${podcastID}&season=${seasonNumber}&episode=${episodeNumber}`;
-    setSharedURLs((prevSharedUrls) => {
-      return {
-        ...prevSharedUrls,
-        [episodeNumber]: sharedURL,
-      };
-    });
+    setSharedURLs((prevSharedUrls) => ({
+      ...prevSharedUrls,
+      [episodeNumber]: sharedURL,
+    }));
   };
 
-  /**
-   * Function to sort favourite episode according to the option chosen
-   * @param {String} order 
-   */
   const sortPodcast = (order) => {
     setSortedPodcasts(order);
 
@@ -142,11 +100,25 @@ export default function Favourites({
       case "titleZA":
         orderedShows.sort((a, b) => b.show.title.localeCompare(a.show.title));
         break;
+      default:
+        break;
     }
+
     setFavouriteEpisodes(orderedShows);
   };
 
-  //When episodes are loading, spinner will be rendered
+  if (!session) {
+    return (
+      <>
+        <p className="error-info">
+          Oops! It seems you haven't signed in yet. Visit the{" "}
+          <Link to="/login">Login page</Link> or{" "}
+          <Link to="/signup">Sign Up</Link> Up to explore and manage your favourite podcasts!🎧
+        </p>
+      </>
+    );
+  }
+
   if (loadingDetails) {
     return (
       <div className="loading--icon">
@@ -174,74 +146,104 @@ export default function Favourites({
           These are your favourite picks, {session.user.user_metadata.full_name}❤️
         </p>
       )}
-      <div className="container">
-        <h1 className="heading">Sort By</h1>
-        <SortFilter sortPodcast={sortPodcast} />
-      </div>
+
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={3}>
+          <Paper>
+            <Search /> {/* Include Search component here */}
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={3}>
+          <Paper>
+            <GenreFilter /> {/* Include GenreFilter component here */}
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} sm={12} md={6}>
+          <div className="container">
+            <h1 className="heading">Sort By</h1>
+            <SortFilter sortPodcast={sortPodcast} />
+          </div>
+        </Grid>
+      </Grid>
+
+      {favouriteEpisodes.length === 0 && (
+        <p className="text">
+          Oops! It seems you haven't added any favorites yet. Explore and add your favorite podcasts!🎧
+        </p>
+      )}
+
       {favouriteEpisodes.map((episode) => (
-        <>
-          <div key={episode.ID} className="fav--episode">
-            <img className="fav--image" src={episode.show.image} />
-            <div className="fav--details">
-              <h4 className="title"> {episode.show.title}</h4>
-              <p className="episodeNum" key={episode.ID}>
-                <span className="bold">Episode {episode.episode.episode}:</span>{" "}
-                {episode.episode.title}
-              </p>
-              <p>{episode.episode.description}</p>
-              <p>
-                <span className="bold">Last Updated: </span>
-                {changeDateFormat(episode.show.updated)}
-              </p>
-              <p>
-                <span className="bold">Added to Favourites:</span>{" "}
-                {getDateAndTime(episode.dateAdded)}{" "}
-              </p>
+        <div key={episode.ID} className="fav--episode">
+          <img className="fav--image" src={episode.show.image} alt={episode.show.title} />
+          <div className="fav--details">
+            <h4 className="title">{episode.show.title}</h4>
+            <p className="episodeNum">
+              <span className="bold">Episode {episode.episode.episode}:</span>{" "}
+              {episode.episode.title}
+            </p>
+            <p>{episode.episode.description}</p>
+            <p>
+              <span className="bold">Last Updated: </span>
+              {changeDateFormat(episode.show.updated)}
+            </p>
+            <p>
+              <span className="bold">Added to Favourites:</span>{" "}
+              {getDateAndTime(episode.dateAdded)}
+            </p>
+          </div>
+          <button
+            className="share--button"
+            onClick={() =>
+              handleShareEpisode(
+                episode.show.id,
+                episode.season.season,
+                episode.episode.episode
+              )
+            }
+          >
+            <ShareIcon /> Share Episode
+          </button>
+          {sharedURLs[episode.episode.episode] && (
+            <div className="Url">
+              <p>{sharedURLs[episode.episode.episode]}</p>
             </div>
-            <button
-              className="share--button"
+          )}
+          <div className="favourite--buttons">
+            <div
+              onClick={() => playSelectedEpisode(episode.episode)}
+              className="play--button"
+            >
+              <IconButton
+                aria-label="playbutton"
+                size="large"
+                sx={{ color: "#008033", fontSize: "3rem" }}
+              >
+                <SmartDisplayOutlinedIcon fontSize="inherit" />
+              </IconButton>
+            </div>
+            <div
               onClick={() =>
-                handleShareEpisode(
-                  episode.show.id,
-                  episode.season.season,
-                  episode.episode.episode
+                toggleFavourite(
+                  episode.show,
+                  episode.season,
+                  episode.episode
                 )
               }
             >
-              Share Episode
-            </button>
-            {sharedURLs[episode.episode.episode] && (
-              <div className="Url">
-                <p>{sharedURLs[episode.episode.episode]}</p>
-              </div>
-            )}
-            <div className="favourite--buttons">
-              <div
-                onClick={() => playSelectedEpisode(episode.episode)}
-                className="play--button">
-                <IconButton
-                  aria-label="playbutton"
-                  size="large"
-                  sx={{ color: "#008033", fontSize: "3rem" }}>
-                  <SmartDisplayOutlinedIcon fontSize="inherit" />
-                </IconButton>
-              </div>
-              <div
-                onClick={() =>
-                  toggleFavourite(episode.show, episode.season, episode.episode)}>
-                <IconButton
-                  sx={{
-                    color: "red",
-                    fontSize: "3rem",
-                  }}
-                  aria-label="favoourite"
-                >
-                  <FavoriteIcon fontSize="inherit" />
-                </IconButton>
-              </div>
+              <IconButton
+                sx={{
+                  color: "black",
+                  fontSize: "3rem",
+                }}
+                aria-label="favourite"
+              >
+                <FavoriteIcon fontSize="inherit" />
+              </IconButton>
             </div>
           </div>
-        </>
+        </div>
       ))}
     </Container>
   );

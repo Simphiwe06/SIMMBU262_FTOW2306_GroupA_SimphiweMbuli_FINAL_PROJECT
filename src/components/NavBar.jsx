@@ -10,14 +10,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavDrawer from "./NavDrawer";
-import SoundLogo from "../images/podplug-logo.png";
+import SoundLogo from "../images/plug-and-play.png";
 
 
 export default function Navbar({ handleFavNavigation, handleLoginNavigation }) {
-  // state for keeping the value of the tab
   const [tabValue, setTabValue] = useState(0);
-
-  //setting state for opening and closing drawer
   const [openDrawer, setOpenDrawer] = useState(true);
   const theme = useTheme();
 
@@ -55,7 +52,9 @@ export default function Navbar({ handleFavNavigation, handleLoginNavigation }) {
             <Link to="/">
               <img src={SoundLogo} className="podcast--logo" />
             </Link>
-            <p>PodPlug</p>
+            <div className="app--name">
+              <p>PodPlug</p>
+            </div>
           </div>
           {!isMatch && (
             <Tabs
@@ -70,21 +69,21 @@ export default function Navbar({ handleFavNavigation, handleLoginNavigation }) {
                 ml: "15rem",
               }}
             >
-              <Tab
+              <Tab className="home-icon"
                 icon={<HomeIcon />}
-                iconPosition="top"
+                iconPosition="left"
                 sx={{ color: "white" }}
                 label="Home"
               />
               <Tab
                 icon={<FavoriteIcon />}
-                iconPosition="top"
+                iconPosition="left"
                 sx={{ color: "white" }}
                 label="Favourites"
               />
               <Tab
                 icon={<PersonIcon />}
-                iconPosition="top"
+                iconPosition="left"
                 sx={{ color: "white" }}
                 label="Login"
               />
