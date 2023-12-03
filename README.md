@@ -44,7 +44,7 @@ Get started with PodPlug in just a few steps:
 5. **Open PodcastHub in your prefferd:**
    
     ```bash
-    http://localhost:5173 
+    http://localhost:8000 
 
 ## Technologies Used
 
