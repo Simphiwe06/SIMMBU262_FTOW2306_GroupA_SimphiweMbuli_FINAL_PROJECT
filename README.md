@@ -27,24 +27,24 @@ Get started with PodPlug in just a few steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone [repository-url]
+   git clone 
 2. **Navigate to Project Directory:**
 
     ```bash
-    cd PodcastHub [repository-url]
+    cd PodcastHub 
 3. **Install the dependencies:**
 
     ```bash
-    npm install [repository-url]
+    npm install 
 
 4. **Launch the development server:**
  
     ```bash
-    npm run dev [repository-url]
+    npm run dev 
 5. **Open PodcastHub in your prefferd:**
    
     ```bash
-    http://localhost:5173 [repository-url]
+    http://localhost:8000 
 
 ## Technologies Used
 
@@ -62,6 +62,6 @@ PodPlug is built using the following technologies:
 
 ## Hosting
 
-https://simphiwe-podplug.netlify.app/
+https://simphiwembuli-podplug.netlify.app/
 
 Explore, listen, and enjoy your podcast journey with PodPlug!
