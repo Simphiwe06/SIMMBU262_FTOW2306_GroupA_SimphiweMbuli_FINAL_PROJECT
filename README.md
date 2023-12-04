@@ -62,6 +62,6 @@ PodPlug is built using the following technologies:
 
 ## Hosting
 
-https://simphiwembuli-podplug.netlify.app/
+https://simphiwe-the-podplug.netlify.app/
 
 Explore, listen, and enjoy your podcast journey with PodPlug!
